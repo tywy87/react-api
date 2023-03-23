@@ -2,8 +2,9 @@ import './App.css';
 import Form from './components/Form';
 
 
+
 // Info 
-function App() {
+function App() {  
   return (
     <div className="App">
       <Form />
@@ -12,3 +13,4 @@ function App() {
 }
 
 export default App;
+

@@ -2,7 +2,7 @@
 
 // copy pasted - https://github.com/openai/openai-quickstart-node/blob/master/pages/api/generate.js
 import { Configuration, OpenAIApi } from "openai";
-import React from 'react'
+import {useState, useEffect} from 'react'
 
 // Set up the OpenAI API key and config
 const OPENAI_API_KEY = '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';
@@ -35,20 +35,22 @@ const generateImage = async () => {
 
 // Form  
 const Form = () => {
-    // ImageUrl variable and setImageUrl function to update it
-    const [imageUrl, setImageUrl] = React.useState()
-    React.useEffect(() => {
+    // ImageUrl variable and setImageUrl function to update it 
+
+    const [imageUrl, setImageUrl] = useState()
+    useEffect(() => {
         const fetchImage = async () => { 
             const url = await generateImage()
             setImageUrl(url)
         }
         fetchImage()
     }, [])
+
     return (
         <div>
             <input type="text" />
             <input type="submit" />
-            {imageUrl && <img src={imageUrl} />}
+            {imageUrl && <img src={imageUrl} />} 
         </div>
     );
 }
