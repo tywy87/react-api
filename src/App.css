@@ -1,38 +1,66 @@
+body {
+  background-color: #F0B589;
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
+  height: 100vh;
+  text-align: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #C43A32;
+  font-size: 2.5rem;
+  margin: 2rem 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.formContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.form {
+  display: flex;
+  gap: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="text"] {
+  padding: 0.5rem;
+  border: 2px solid #ED1C24;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input[type="submit"] {
+  padding: 0.5rem 1rem;
+  background-color: #ED1C24;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #FFDB58;
+}
+
+img {
+  max-width: 520px;
+  max-height: 520px;
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
 }

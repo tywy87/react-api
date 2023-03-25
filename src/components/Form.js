@@ -5,7 +5,7 @@ import { Configuration, OpenAIApi } from "openai";
 import {useState, useEffect} from 'react'
 
 // Set up the OpenAI API key and config
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = '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';
 
     // config object created
 const configuration = new Configuration({
@@ -22,11 +22,11 @@ const generateImage = async () => {
      // API request to generate an image w/ prompt
 // Link for generating image-> https://platform.openai.com/docs/guides/images/generations
     const response = await openai.createImage({
-        prompt: "a white siamese cat wearing hotdog costume",
+        prompt: "cat wearing hotdog costume",
         // images created
         n: 1,
         // pixel size
-        size: "1024x1024",
+        size: "512x512",
     });
     // Extract image URL from response. then return it
     const image_url = response.data.data[0].url;
@@ -47,9 +47,12 @@ const Form = () => {
     }, [])
 
     return (
-        <div>
-            <input type="text" />
-            <input type="submit" />
+        <div className="formContainer">
+            <h2>Unleash your inner Frankfurter Fashionista! Upload your text, and watch!</h2>
+            <div className="form">
+                <input type="text" />
+                <input type="submit" />
+            </div>
             {imageUrl && <img src={imageUrl} />} 
         </div>
     );
