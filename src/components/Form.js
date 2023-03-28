@@ -5,11 +5,12 @@ import { Configuration, OpenAIApi } from "openai";
 import {useState, useEffect} from 'react'
 
 // Set up the OpenAI API key and config
-const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
+// const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
 
     // config object created
 const configuration = new Configuration({
-    apiKey: OPENAI_API_KEY,
+    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+    // apiKey: OPENAI_API_KEY,
 });
 
 // Create a new OpenAIApi object with the configuration
