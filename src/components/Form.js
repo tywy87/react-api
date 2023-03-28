@@ -5,7 +5,7 @@ import { Configuration, OpenAIApi } from "openai";
 import {useState, useEffect} from 'react'
 
 // Set up the OpenAI API key and config
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
 
     // config object created
 const configuration = new Configuration({
@@ -18,11 +18,11 @@ const openai = new OpenAIApi(configuration);
 
 // Async function to generate an image using the OpenAI API
     // asynchronous operations making an API request
-const generateImage = async () => {
+const generateImage = async (inputText) => {
      // API request to generate an image w/ prompt
 // Link for generating image-> https://platform.openai.com/docs/guides/images/generations
     const response = await openai.createImage({
-        prompt: "cat wearing hotdog costume",
+        prompt: `photorealistic ${inputText} as a hot dog`,
         // images created
         n: 1,
         // pixel size
@@ -38,21 +38,32 @@ const Form = () => {
     // ImageUrl variable and setImageUrl function to update it 
 
     const [imageUrl, setImageUrl] = useState()
-    useEffect(() => {
-        const fetchImage = async () => { 
-            const url = await generateImage()
-            setImageUrl(url)
-        }
-        fetchImage()
-    }, [])
+
+//Used for API testing --
+    // useEffect(() => {
+    //     const fetchImage = async () => { 
+    //         const url = await generateImage()
+    //         setImageUrl(url)
+    //     }
+    //     fetchImage()
+    // }, [])
 
     return (
         <div className="formContainer">
             <h2>Unleash your inner Frankfurter Fashionista! Upload your text, and watch!</h2>
-            <div className="form">
+            <form className="form" onSubmit={async (event) => {
+                // prevent the default form submit behavior
+                event.preventDefault()
+                // get the text input value from event and store it in a variable
+                const text = event.target[0].value
+                // call the generateImage function using the text variable and save the response 
+                const url = await generateImage(text)
+                // setImageUrl to update imageUrl state variable
+                setImageUrl(url)
+            }}>
                 <input type="text" />
                 <input type="submit" />
-            </div>
+            </form>
             {imageUrl && <img src={imageUrl} />} 
         </div>
     );
