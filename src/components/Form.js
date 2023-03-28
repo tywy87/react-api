@@ -2,7 +2,7 @@
 
 // copy pasted - https://github.com/openai/openai-quickstart-node/blob/master/pages/api/generate.js
 import { Configuration, OpenAIApi } from "openai";
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 
 // Set up the OpenAI API key and config
 // const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
