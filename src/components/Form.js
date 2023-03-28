@@ -5,12 +5,11 @@ import { Configuration, OpenAIApi } from "openai";
 import {useState} from 'react'
 
 // Set up the OpenAI API key and config
-// const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
+const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
 
     // config object created
 const configuration = new Configuration({
-    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-    // apiKey: OPENAI_API_KEY,
+    apiKey: OPENAI_API_KEY,
 });
 
 // Create a new OpenAIApi object with the configuration
@@ -65,7 +64,7 @@ const Form = () => {
                 <input type="text" />
                 <input type="submit" />
             </form>
-            {imageUrl && <img src={imageUrl} />} 
+            {imageUrl && <img src={imageUrl} alt="" />} 
         </div>
     );
 }
