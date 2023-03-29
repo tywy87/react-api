@@ -39,6 +39,8 @@ const Form = () => {
 
     const [imageUrl, setImageUrl] = useState()
 
+    const [loading, setLoading] = useState(false)
+
 //Used for API testing --
     // useEffect(() => {
     //     const fetchImage = async () => { 
@@ -56,13 +58,22 @@ const Form = () => {
                 event.preventDefault()
                 // get the text input value from event and store it in a variable
                 const text = event.target[0].value
+                try{
+                    setLoading(true)
                 // call the generateImage function using the text variable and save the response 
                 const url = await generateImage(text)
                 // setImageUrl to update imageUrl state variable
-                setImageUrl(url)
+                setImageUrl(url)}
+                catch(error) {
+                    console.error(error)
+                    alert(`An error occured while generating the image.`)
+                } finally {
+                    setLoading(false)
+                }
             }}>
                 <input type="text" />
-                <input type="submit" />
+                <input type="submit" disabled={loading}/>
+                {loading ? <span className="loading">Loading...</span> : ''}
             </form>
             {imageUrl && <img src={imageUrl} alt="" />} 
         </div>

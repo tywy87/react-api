@@ -7,9 +7,9 @@ import {useEffect} from 'react';
 // Info 
 function App() {  
   
-  useEffect(() => {
-    document.title = "Hotdoggin around";
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Hotdoggin around";
+  // }, []);
 
   return (
     <div className="wrapper">
