@@ -22,7 +22,7 @@ const generateImage = async (inputText) => {
      // API request to generate an image w/ prompt
 // Link for generating image-> https://platform.openai.com/docs/guides/images/generations
     const response = await openai.createImage({
-        prompt: `photorealistic ${inputText} as a hot dog`,
+        prompt: `photorealistic ${inputText} as a hotdog`,
         // images created
         n: 1,
         // pixel size
@@ -50,7 +50,7 @@ const Form = () => {
 
     return (
         <div className="formContainer">
-            <h2>Unleash your inner Frankfurter Fashionista! Upload your text, and watch!</h2>
+            <h2>Unleash your inner Frankfurter Fashionista! Write a single object of text and watch the result!</h2>
             <form className="form" onSubmit={async (event) => {
                 // prevent the default form submit behavior
                 event.preventDefault()
