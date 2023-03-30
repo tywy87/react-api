@@ -7,10 +7,6 @@ import {useEffect} from 'react';
 // Info 
 function App() {  
   
-  // useEffect(() => {
-  //   document.title = "Hotdoggin around";
-  // }, []);
-
   return (
     <div className="wrapper">
       <div className="App">
