@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Form from './components/Form';
+import {useEffect} from 'react';
 
-function App() {
+
+
+// Info 
+function App() {  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <div className="App">
+        <h1>The Hotdog Hootenanny: A Sizzling Dress-up Spectacle</h1>
+        <Form />
+      </div>
+      <footer><p>&copy; Tyler Wyles 2023</p></footer>
     </div>
   );
 }
 
 export default App;
+
